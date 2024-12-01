@@ -31,7 +31,7 @@ export default function MainLayout({
             </div>
             <div
               id={"body-main"}
-              className="max-w-screen-xl p-3 lg:p-8 w-full overflow-auto grow mx-auto"
+              className="max-w-screen-xl p-3 lg:p-8 w-full overflow-auto grow mx-auto text-black"
             >
               {children}
             </div>
