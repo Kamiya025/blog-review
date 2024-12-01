@@ -1,4 +1,5 @@
 import MainLayout from "@/components/layout/layout"
+import { Suspense } from "react"
 
 export const metadata = {
   title: "Next.js",
@@ -10,5 +11,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <MainLayout children={children} />
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MainLayout children={children} />
+    </Suspense>
+  )
 }
