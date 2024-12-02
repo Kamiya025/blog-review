@@ -1,5 +1,6 @@
+import Image from "next/image"
 import Link from "next/link"
-
+type tagType = "rank1" | "rank2" | "rank3"
 export const ItemPost = (props: {
   id: string
   title: string
@@ -7,17 +8,35 @@ export const ItemPost = (props: {
   date: string
   view: number
   isNew?: boolean
+  tag?: tagType
 }) => {
   return (
     <Link
       href={"/post/" + props.id}
-      className="relative w-full rounded-sm shadow-md flex gap-3 border p-3 hover:bg-slate-200"
+      className="relative w-full rounded-sm shadow-md flex items-center gap-3 border p-3 hover:bg-slate-200"
     >
       <div className="relative">
         <div className="bg-slate-500 rounded-full !w-20 !h-20 aspect-square" />
+        {props.tag ? (
+          <Image
+            src={`/${props.tag}.png`}
+            alt={`post-${props.tag}`}
+            width={30}
+            height={30}
+            className="absolute -top-2 -left-2"
+          />
+        ) : (
+          props.isNew && (
+            <span className="absolute text-xs rounded-full bg-red-400 px-2 py-1 text-white top-0">
+              Mới
+            </span>
+          )
+        )}
       </div>
       <div className="flex-grow flex flex-col gap-2">
-        <div className="text-xl line-clamp-1">{props.title}</div>
+        <div className="text-xl line-clamp-1 !text-sky-700 font-semibold">
+          {props.title}
+        </div>
         <div className="text-xs flex gap-3">
           <div className="flex gap-1 items-center text-slate-400">
             <svg
@@ -64,11 +83,6 @@ export const ItemPost = (props: {
           {props.description}
         </div>
       </div>
-      {props.isNew && (
-        <span className="absolute text-xs rounded-full bg-red-400 px-2 py-1 text-white">
-          Mới
-        </span>
-      )}
     </Link>
   )
 }

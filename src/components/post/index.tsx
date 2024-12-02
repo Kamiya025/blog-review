@@ -1,5 +1,5 @@
-import { RankAuthor } from "@/components/home/rank-author"
-import { RankPost } from "@/components/home/rank-post"
+import { RankAuthor } from "@/components/rank/rank-author"
+import { RankPost } from "@/components/rank/rank-post"
 import { PostNew } from "../home/new-post"
 import { ListPosts } from "./list-posts"
 

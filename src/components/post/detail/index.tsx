@@ -1,19 +1,21 @@
 "use client"
-import { RankAuthor } from "@/components/home/rank-author"
-import { RankPost } from "@/components/home/rank-post"
+import { RankAuthor } from "@/components/rank/rank-author"
+import { RankPost } from "@/components/rank/rank-post"
 import { useParams, useSearchParams } from "next/navigation"
 import { useState } from "react"
+import { BannerDetailPost } from "./banner"
 
 export const DetailPostWrapper = () => {
   const [isCenter, setIsCenter] = useState(false)
   const { slugId } = useParams()
   return (
     <div className="flex flex-col gap-6 w-full min-h-full h-full">
-      <div className="bg-main-image bg-opacity-55 h-44 w-full col-span-full bg-white text-lg shadow-lg rounded-md flex flex-col justify-end">
-        <div className="cursor-pointer text-white text-3xl font-bold bg-gradient-to-b from-transparent to-stone-900 w-full px-3 py-2 hover:min-h-28 transition duration-500 hover:ease-out">
-          Lorem ipsum odor amet, consectetuer adipiscing elit. {slugId}
-        </div>
-      </div>
+      <BannerDetailPost
+        title={`Lorem ipsum odor amet, consectetuer adipiscing elit. ${slugId}`}
+        time="25/10/2001"
+        views={5000}
+      />
+
       <div
         className={
           isCenter
@@ -217,8 +219,8 @@ export const DetailPostWrapper = () => {
           </div>
         </div>
         <div
-          className={`col-span-full hidden lg:col-span-4 ${
-            isCenter ? "" : "lg:flex lg:flex-col"
+          className={`col-span-full lg:col-span-4 ${
+            isCenter ? "grid md:grid-cols-2" : "lg:flex lg:flex-col"
           } gap-3 max-h-full`}
         >
           <RankPost />

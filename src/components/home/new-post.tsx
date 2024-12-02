@@ -1,10 +1,10 @@
 import Link from "next/link"
-import { ItemPost } from "./item-post"
+import { ItemPost } from "../post/item-post"
 
 export const PostNew = () => {
   return (
     <>
-      <div className="col-span-full bg-white text-lg shadow-lg rounded-md p-3">
+      <div className="col-span-full bg-white text-lg font-bold shadow-lg rounded-md p-3">
         Bài viết gần đây
       </div>
       <div className="grow bg-white shadow-lg flex flex-col gap-3 rounded-md p-5">
@@ -13,7 +13,9 @@ export const PostNew = () => {
             <ItemPost
               key={e}
               id={e.toString()}
-              title={"Tiêu đề " + e}
+              title={
+                "Lorem ipsum odor amet, consectetuer adipiscing elit. " + e
+              }
               description={
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
               }

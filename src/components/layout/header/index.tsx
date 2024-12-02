@@ -1,9 +1,12 @@
 "use client"
+import { Button } from "@/components/ui/button"
+import { cva } from "class-variance-authority"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
 export const LayoutHeader = () => {
+  const pathname = usePathname()
   const searchParams = useSearchParams()
   const searchPosts = searchParams.get("search")
   const [search, setSearch] = useState(false)
@@ -13,27 +16,25 @@ export const LayoutHeader = () => {
       searchInputRef.current.focus()
     }
   }, [search])
+
   return (
     <div className="bg-white rounded-md shadow-xl h-14 flex justify-between items-center">
-      <div className="text-slate-800 text-2xl font-extrabold p-3">
+      <div className="text-slate-800 text-2xl font-extrabold p-3 select-none">
         <Link href={"/"}>LOGO</Link>
       </div>
       <div className="hidden md:flex gap-5 items-center h-full">
         <div className="flex items-center transition-transform duration-1000 h-full">
-          <Link
-            href={"/"}
-            className="relative px-3 flex gap-3 items-center transition-transform duration-1000 h-full group"
-          >
-            <div>Trang chủ</div>
-            <div className="group-hover:w-10 group-hover:-translate-x-0 group- -translate-x-full group-hover:scale-110 duration-300 absolute bottom-0 right-0 transition-transform left-0 w-0 h-1 bg-orange-400 mx-auto"></div>
-          </Link>
-          <Link
-            href={"/post"}
-            className="relative px-3 flex gap-3 items-center transition-transform duration-1000 h-full group"
-          >
-            <div>Bài viết</div>
-            <div className="group-hover:w-10 group-hover:-translate-x-0 group-focus-within:bg-black -translate-x-full group-hover:scale-110 duration-300 absolute bottom-0 right-0 transition-transform left-0 w-0 h-1 bg-orange-400 mx-auto"></div>
-          </Link>
+          <MenuItem
+            href="/"
+            label="Trang chủ"
+            isFocus={pathname === "/" || pathname === ""}
+          />
+          <MenuItem
+            href="/post"
+            label="Bài viết"
+            isFocus={pathname.startsWith("/post")}
+          />
+
           <div>
             <form action="/post" className="flex items-center relative">
               <input
@@ -75,14 +76,47 @@ export const LayoutHeader = () => {
           </div>
         </div>
         <div>
-          <Link
-            href={"/user/sign-in"}
-            className="px-4 py-3 rounded-md bg-orange-500 hover:bg-orange-300 active:bg-orange-600 text-white text-nowrap"
-          >
-            Đăng nhập
+          <Link href={"/user/sign-in"}>
+            <Button>Đăng nhập</Button>
           </Link>
         </div>
       </div>
     </div>
+  )
+}
+const headerMenuItemBottom = cva(
+  "duration-500 absolute bottom-0 right-0 transition-transform left-0 h-1 bg-orange-400 mx-auto",
+  {
+    variants: {
+      isFocus: {
+        true: "w-10",
+
+        false:
+          "w-0 group-hover:w-10 group-hover:-translate-x-0 translate-x-3 group-hover:scale-110",
+      },
+    },
+    compoundVariants: [
+      {
+        isFocus: false,
+      },
+    ],
+    defaultVariants: {
+      isFocus: false,
+    },
+  }
+)
+const MenuItem = (props: {
+  href: string
+  label: string
+  isFocus?: boolean
+}) => {
+  return (
+    <Link
+      href={props.href}
+      className="relative px-3 flex gap-3 items-center transition-transform duration-1000 h-full group"
+    >
+      <div>{props.label}</div>
+      <div className={headerMenuItemBottom({ ...props })} />
+    </Link>
   )
 }

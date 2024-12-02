@@ -1,11 +1,13 @@
 "use client"
 
-import Link from "next/link"
 import { useSearchParams } from "next/navigation"
+
+import { Pagination } from "../ui/pagination"
 import { ItemPost } from "./item-post"
 
 export const ListPosts = () => {
   const searchParams = useSearchParams()
+  const search = searchParams.get("search")
   const page = Number(searchParams.get("page") ?? "1")
   return (
     <>
@@ -18,7 +20,10 @@ export const ListPosts = () => {
             <ItemPost
               key={e}
               id={e.toString()}
-              title={"Tiêu đề " + ((page - 1) * 10 + e + 1)}
+              title={
+                "Lorem ipsum odor amet, consectetuer adipiscing elit. " +
+                ((page - 1) * 10 + e + 1)
+              }
               description={
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
               }
@@ -28,17 +33,11 @@ export const ListPosts = () => {
             />
           ))}
         </div>
-        <div className="flex justify-end py-1 gap-2">
-          {[1, 2].map((e) => (
-            <Link
-              key={e}
-              href={`/post?page=${e}`}
-              className="flex items-center px-3 py-2 bg-orange-200 rounded-md hover:bg-orange-300 transition duration-300"
-            >
-              {e}
-            </Link>
-          ))}
-        </div>
+        <Pagination
+          href={{ pathname: "/post", query: search ? { search } : undefined }}
+          totalPages={10}
+          currentPage={page}
+        />
       </div>
     </>
   )

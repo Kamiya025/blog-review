@@ -1,7 +1,15 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  async redirects() {
+    return [
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true, // Đặt thành false nếu muốn redirect tạm thời
+      },
+    ]
+  },
+}
 
-export default nextConfig;
+export default nextConfig
