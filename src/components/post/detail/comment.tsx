@@ -6,8 +6,8 @@ export const CommentWrapper = () => {
       <div className="w-full bg-orange-200 text-gray-700 text-lg shadow-lg rounded-md px-3 py-2">
         Thảo luận
       </div>
-      <div className="px-3 py-5">
-        {[Array(10)].map((_, e) => (
+      <div className="px-3 py-5 flex flex-col justify-center w-full gap-5">
+        {[...Array(10)].map((_, e) => (
           <ItemComment key={"comment" + e} />
         ))}
       </div>
