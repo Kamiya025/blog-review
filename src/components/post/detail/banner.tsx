@@ -4,7 +4,7 @@ export const BannerDetailPost = (props: {
   time: string
 }) => {
   return (
-    <div className="relative bg-main-image bg-opacity-55 h-44 w-full col-span-full bg-white text-lg shadow-lg rounded-md flex flex-col justify-end">
+    <div className="relative bg-main-image bg-opacity-55 !h-[20rem] w-full col-span-full bg-white text-lg shadow-lg rounded-md flex flex-col justify-end">
       <div className="cursor-pointer text-white text-3xl font-bold bg-gradient-to-b from-transparent to-stone-900 w-full px-3 py-2 hover:min-h-28 transition duration-500 hover:ease-out">
         {props.title}
       </div>
