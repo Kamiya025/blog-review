@@ -4,6 +4,7 @@ import { RankPost } from "@/components/rank/rank-post"
 import { useParams, useSearchParams } from "next/navigation"
 import { useState } from "react"
 import { BannerDetailPost } from "./banner"
+import { OtherPostWrapper } from "./other-post"
 
 export const DetailPostWrapper = () => {
   const [isCenter, setIsCenter] = useState(false)
@@ -23,15 +24,7 @@ export const DetailPostWrapper = () => {
             : "grid grid-cols-12 gap-6 h-full max-h-full"
         }
       >
-        {/* <div
-          className={
-            isCenter ? "hidden" : "relative col-span-full md:col-span-3"
-          }
-        >
-       
-       
-        </div> */}
-        <div className="col-span-full md:col-span-8 flex flex-col gap-3 max-h-full">
+        <div className="col-span-full md:col-span-full lg:col-span-8 flex flex-col gap-3 max-h-full">
           <div className="grow relative col-span-full bg-white shadow-lg rounded-md px-5 py-6">
             <div
               className="absolute top-1 right-2 hover:bg-slate-200 rounded-md p-2 cursor-pointer hidden md:block"
@@ -188,7 +181,7 @@ export const DetailPostWrapper = () => {
             </div>
           </div>
           <div className="w-full flex flex-wrap gap-2">
-            {["Tự do", "Đời sống"].map((value, index) => (
+            {"Tự do, Đời sống, Sáng tạo".split(", ").map((value, index) => (
               <div
                 key={index}
                 className="bg-orange-400 rounded-lg text-white w-fit px-2 py-1"
@@ -220,11 +213,18 @@ export const DetailPostWrapper = () => {
         </div>
         <div
           className={`col-span-full lg:col-span-4 ${
-            isCenter ? "grid md:grid-cols-2" : "lg:flex lg:flex-col"
+            isCenter ? "flex flex-col" : "lg:flex lg:flex-col"
           } gap-3 max-h-full`}
         >
-          <RankPost />
-          <RankAuthor />
+          <OtherPostWrapper />
+          <div
+            className={`col-span-full lg:col-span-4 ${
+              isCenter ? "grid md:grid-cols-2" : "lg:flex lg:flex-col"
+            } gap-3 max-h-full`}
+          >
+            <RankPost />
+            <RankAuthor />
+          </div>
         </div>
       </div>
       <div className={`w-full ${isCenter && "md:px-8"}`}>
@@ -232,11 +232,7 @@ export const DetailPostWrapper = () => {
           Thảo luận
         </div>
       </div>
-      <div className={`w-full ${isCenter && "md:px-8"}`}>
-        <div className="w-full bg-white text-lg shadow-lg rounded-md px-3 py-2">
-          Bài viết liên quan
-        </div>
-      </div>
+      <div className={`w-full ${isCenter && "md:px-8"}`}></div>
     </div>
   )
 }

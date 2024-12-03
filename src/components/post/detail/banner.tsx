@@ -8,7 +8,7 @@ export const BannerDetailPost = (props: {
       <div className="cursor-pointer text-white text-3xl font-bold bg-gradient-to-b from-transparent to-stone-900 w-full px-3 py-2 hover:min-h-28 transition duration-500 hover:ease-out">
         {props.title}
       </div>
-      <div className="absolute z-20 -right-1 top-2 w-fit flex items-center gap-1 bg-orange-600 text-white text-sm px-2 py-1 rounded-l-lg">
+      <div className="absolute z-20 -right-2 top-2 w-fit flex items-center gap-1 bg-orange-600 text-white text-sm px-2 py-1 rounded-l-lg rounded-t-md">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -24,6 +24,11 @@ export const BannerDetailPost = (props: {
         </svg>
         <span>{props.views}</span>
       </div>
+      <div
+        className="absolute z-10 -right-2 top-9 w-2 h-1 flex items-center gap-1 
+                bg-orange-300 
+                rounded-ee-full rounded-es-[-1rem]"
+      ></div>
     </div>
   )
 }
