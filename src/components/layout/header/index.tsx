@@ -18,12 +18,40 @@ export const LayoutHeader = () => {
   }, [search])
 
   return (
-    <div className="bg-white rounded-md shadow-xl h-14 flex justify-between items-center">
+    <header className="relative bg-white rounded-md shadow-xl h-14 flex justify-between items-center">
       <div className="text-slate-800 text-2xl font-extrabold p-3 select-none">
         <Link href={"/"}>LOGO</Link>
       </div>
-      <div className="hidden md:flex gap-5 items-center h-full">
-        <div className="flex items-center transition-transform duration-1000 h-full">
+      <nav className="block md:hidden px-2">
+        <div className="rounded-full p-3 hover:bg-orange-200">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="size-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+        <div className="absolute top-16 bg-white rounded-md w-full h-fit left-0 right-0 shadow-xl p-3">
+          <MenuItem
+            href="/"
+            label="Trang chủ"
+            isFocus={pathname === "/" || pathname === ""}
+          />
+          <MenuItem
+            href="/post"
+            label="Bài viết"
+            isFocus={pathname.startsWith("/post")}
+          />
+        </div>
+      </nav>
+      <nav className="hidden md:flex gap-5 items-center h-full px-2">
+        <div className="flex items-center transition-transform duration-1000 h-full group/nav">
           <MenuItem
             href="/"
             label="Trang chủ"
@@ -80,8 +108,8 @@ export const LayoutHeader = () => {
             <Button>Đăng nhập</Button>
           </Link>
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   )
 }
 const headerMenuItemBottom = cva(
@@ -89,7 +117,7 @@ const headerMenuItemBottom = cva(
   {
     variants: {
       isFocus: {
-        true: "w-10",
+        true: "w-10 group-hover/nav:w-0 group-hover:!w-10 group-hover:-translate-x-0 translate-x-0",
 
         false:
           "w-0 group-hover:w-10 group-hover:-translate-x-0 translate-x-3 group-hover:scale-110",
@@ -105,6 +133,7 @@ const headerMenuItemBottom = cva(
     },
   }
 )
+
 const MenuItem = (props: {
   href: string
   label: string
@@ -113,7 +142,10 @@ const MenuItem = (props: {
   return (
     <Link
       href={props.href}
-      className="relative px-3 flex gap-3 items-center transition-transform duration-1000 h-full group"
+      className="relative px-3 py-2  flex gap-3 items-center 
+                transition-transform duration-1000 h-full group
+                w-full md:w-fit group
+                hover:bg-orange-200 md:hover:bg-transparent rounded-md"
     >
       <div>{props.label}</div>
       <div className={headerMenuItemBottom({ ...props })} />

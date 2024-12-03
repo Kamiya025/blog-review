@@ -5,6 +5,7 @@ import { useParams, useSearchParams } from "next/navigation"
 import { useState } from "react"
 import { BannerDetailPost } from "./banner"
 import { OtherPostWrapper } from "./other-post"
+import { CommentWrapper } from "./comment"
 
 export const DetailPostWrapper = () => {
   const [isCenter, setIsCenter] = useState(false)
@@ -227,11 +228,7 @@ export const DetailPostWrapper = () => {
           </div>
         </div>
       </div>
-      <div className={`w-full ${isCenter && "md:px-8"}`}>
-        <div className="w-full bg-white text-lg shadow-lg rounded-md px-3 py-2">
-          Thảo luận
-        </div>
-      </div>
+      <CommentWrapper />
       <div className={`w-full ${isCenter && "md:px-8"}`}></div>
     </div>
   )

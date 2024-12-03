@@ -11,7 +11,7 @@ export const RankPost = () => {
         <>
           {[1, 2, 3, 4, 5].map((e) => (
             <Link
-              href={"#"}
+              href={`/post/${e}`}
               key={e}
               className="flex gap-5 px-2 py-3 justify-center items-center divide-slate-900 w-full "
             >

@@ -4,7 +4,7 @@ import { ItemPost } from "../post/item-post"
 export const PostNew = () => {
   return (
     <>
-      <div className="col-span-full bg-white text-lg font-bold shadow-lg rounded-md p-3">
+      <div className="col-span-full bg-orange-200 text-gray-700 text-lg font-bold shadow-lg rounded-md p-3">
         Bài viết gần đây
       </div>
       <div className="grow bg-white shadow-lg flex flex-col gap-3 rounded-md p-5">

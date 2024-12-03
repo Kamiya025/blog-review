@@ -1,7 +1,7 @@
 export const OtherPostWrapper = () => {
   return (
     <>
-      <div className="w-full bg-white text-lg shadow-lg rounded-md px-3 py-2">
+      <div className="w-full bg-orange-200 text-gray-700 font-bold text-lg shadow-lg rounded-md px-3 py-2">
         Bài viết liên quan
       </div>
       <div className="flex flex-wrap justify-around gap-3 py-5">
