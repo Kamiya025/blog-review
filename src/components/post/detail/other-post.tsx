@@ -26,7 +26,7 @@ export const OtherPostItem = (props: {
 }) => {
   return (
     <div
-      className="relative bg-main-image bg-opacity-55 h-40 w-full max-w-[19rem] 
+      className="relative bg-main-image bg-cover bg-opacity-55 h-40 w-full max-w-[19rem] 
                   col-span-full bg-white text-lg shadow-lg rounded-md 
                   flex flex-col justify-end"
     >

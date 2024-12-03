@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/components/auth/context"
 import MainLayout from "@/components/layout/layout"
 
 export const metadata = {
@@ -10,5 +11,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <MainLayout children={children} />
+  return (
+    <AuthProvider>
+      <MainLayout children={children} />
+    </AuthProvider>
+  )
 }

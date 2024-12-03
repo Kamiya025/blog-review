@@ -1,11 +1,11 @@
 "use client"
 import { RankAuthor } from "@/components/rank/rank-author"
 import { RankPost } from "@/components/rank/rank-post"
-import { useParams, useSearchParams } from "next/navigation"
+import { useParams } from "next/navigation"
 import { useState } from "react"
 import { BannerDetailPost } from "./banner"
-import { OtherPostWrapper } from "./other-post"
 import { CommentWrapper } from "./comment"
+import { OtherPostWrapper } from "./other-post"
 
 export const DetailPostWrapper = () => {
   const [isCenter, setIsCenter] = useState(false)
