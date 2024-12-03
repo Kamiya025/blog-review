@@ -22,34 +22,7 @@ export const LayoutHeader = () => {
       <div className="text-slate-800 text-2xl font-extrabold p-3 select-none">
         <Link href={"/"}>LOGO</Link>
       </div>
-      <nav className="block md:hidden px-2">
-        <div className="rounded-full p-3 hover:bg-orange-200">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="size-4"
-          >
-            <path
-              fillRule="evenodd"
-              d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </div>
-        <div className="absolute top-16 bg-white rounded-md w-full h-fit left-0 right-0 shadow-xl p-3">
-          <MenuItem
-            href="/"
-            label="Trang chủ"
-            isFocus={pathname === "/" || pathname === ""}
-          />
-          <MenuItem
-            href="/post"
-            label="Bài viết"
-            isFocus={pathname.startsWith("/post")}
-          />
-        </div>
-      </nav>
+      <Header4SM />
       <div className="grow hidden md:block">
         <form
           action="/post"
@@ -79,25 +52,6 @@ export const LayoutHeader = () => {
               placeholder="Tìm kiếm"
             />
           </div>
-          {/* <button
-            type={"submit"}
-            className={`${
-              search && "absolute right-0"
-            } p-2 aspect-square rounded-full shadow-sm border hover:bg-slate-300 cursor-pointer`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="size-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button> */}
         </form>
       </div>
       <nav className="hidden md:flex gap-5 items-center h-full px-2">
@@ -123,7 +77,7 @@ export const LayoutHeader = () => {
   )
 }
 const headerMenuItemBottom = cva(
-  "duration-500 absolute bottom-0 right-0 transition-transform left-0 h-1 bg-orange-400 mx-auto",
+  "hidden md:block duration-500 absolute bottom-0 right-0 transition-transform left-0 h-1 bg-orange-400 mx-auto",
   {
     variants: {
       isFocus: {
@@ -160,5 +114,69 @@ const MenuItem = (props: {
       <div>{props.label}</div>
       <div className={headerMenuItemBottom({ ...props })} />
     </Link>
+  )
+}
+const headerMenuItem4SM = cva(
+  "absolute top-16 bg-white rounded-md w-full h-fit left-0 right-0 shadow-xl p-3",
+  {
+    variants: {
+      isOpen: {
+        true: "block",
+        false: "hidden",
+      },
+    },
+    compoundVariants: [
+      {
+        isOpen: false,
+      },
+    ],
+    defaultVariants: {
+      isOpen: false,
+    },
+  }
+)
+
+const Header4SM = () => {
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+  return (
+    <nav className="block md:hidden px-2">
+      <button
+        className="rounded-full p-3 hover:bg-orange-200"
+        onClick={() => {
+          setOpen((pre) => !pre)
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          className="size-4"
+        >
+          <path
+            fillRule="evenodd"
+            d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+      <div className={headerMenuItem4SM({ isOpen: open })}>
+        <MenuItem
+          href="/"
+          label="Trang chủ"
+          isFocus={pathname === "/" || pathname === ""}
+        />
+        <MenuItem
+          href="/post"
+          label="Bài viết"
+          isFocus={pathname.startsWith("/post")}
+        />
+        <div className="flex justify-end my-2">
+          <Link href={"/user/sign-in"}>
+            <Button>Đăng nhập</Button>
+          </Link>
+        </div>
+      </div>
+    </nav>
   )
 }
