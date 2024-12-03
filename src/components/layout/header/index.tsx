@@ -9,7 +9,7 @@ export const LayoutHeader = () => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const searchPosts = searchParams.get("search")
-  const [search, setSearch] = useState(false)
+  const [search, setSearch] = useState(true)
   const searchInputRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
     if (search && searchInputRef.current) {
@@ -50,6 +50,56 @@ export const LayoutHeader = () => {
           />
         </div>
       </nav>
+      <div className="grow hidden md:block">
+        <form
+          action="/post"
+          className="flex items-center justify-center relative w-full"
+        >
+          <div className="relative md:w-7/12">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="absolute size-5 left-2 my-auto top-0 bottom-0"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <input
+              ref={searchInputRef}
+              name="search"
+              type="search"
+              defaultValue={searchPosts ?? undefined}
+              className={`${
+                search ? "block" : "hidden"
+              }  rounded-full border pl-10 px-3 py-2 w-full`}
+              placeholder="Tìm kiếm"
+            />
+          </div>
+          {/* <button
+            type={"submit"}
+            className={`${
+              search && "absolute right-0"
+            } p-2 aspect-square rounded-full shadow-sm border hover:bg-slate-300 cursor-pointer`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="size-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button> */}
+        </form>
+      </div>
       <nav className="hidden md:flex gap-5 items-center h-full px-2">
         <div className="flex items-center transition-transform duration-1000 h-full group/nav">
           <MenuItem
@@ -62,46 +112,6 @@ export const LayoutHeader = () => {
             label="Bài viết"
             isFocus={pathname.startsWith("/post")}
           />
-
-          <div>
-            <form action="/post" className="flex items-center relative">
-              <input
-                ref={searchInputRef}
-                name="search"
-                defaultValue={searchPosts ?? undefined}
-                className={`${
-                  search ? "block" : "hidden"
-                }  rounded-full border px-2 py-2`}
-                placeholder="Tìm kiếm"
-              />
-              <button
-                type={"button"}
-                className={`${
-                  search && "absolute right-0"
-                } p-2 aspect-square rounded-full shadow-sm border hover:bg-slate-300 cursor-pointer`}
-                onClick={
-                  !search
-                    ? () => {
-                        setSearch(true)
-                      }
-                    : undefined
-                }
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="size-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </form>
-          </div>
         </div>
         <div>
           <Link href={"/user/sign-in"}>
