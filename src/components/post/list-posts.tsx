@@ -1,7 +1,8 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
-
+import { useState } from "react"
+import { Modal } from "../ui/modal"
 import { Pagination } from "../ui/pagination"
 import { ItemPost } from "./item-post"
 
@@ -9,18 +10,37 @@ export const ListPosts = () => {
   const searchParams = useSearchParams()
   const search = searchParams.get("search")
   const page = Number(searchParams.get("page") ?? "1")
+  const [isOpenFilter, setIsOpenFilter] = useState(false)
   return (
     <>
       <div className="flex justify-center gap-2 items-center col-span-full bg-orange-200 text-gray-700 text-lg shadow-lg rounded-md p-3">
         <div className="grow"> Danh sách bài viết</div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 16 16"
-          fill="currentColor"
-          className="size-4 cursor-pointer"
+        <Modal
+          isOpen={isOpenFilter}
+          onClose={() => setIsOpenFilter(false)}
+          label={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              className="size-4 cursor-pointer"
+              onClick={() => setIsOpenFilter(true)}
+            >
+              <path d="M6.5 2.25a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0V4.5h6.75a.75.75 0 0 0 0-1.5H6.5v-.75ZM11 6.5a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0v-.75h2.25a.75.75 0 0 0 0-1.5H11V6.5ZM5.75 10a.75.75 0 0 1 .75.75v.75h6.75a.75.75 0 0 1 0 1.5H6.5v.75a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM2.75 7.25H8.5v1.5H2.75a.75.75 0 0 1 0-1.5ZM4 3H2.75a.75.75 0 0 0 0 1.5H4V3ZM2.75 11.5H4V13H2.75a.75.75 0 0 1 0-1.5Z" />
+            </svg>
+          }
+          titleHeader={"Tìm kiếm nâng cao"}
         >
-          <path d="M6.5 2.25a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0V4.5h6.75a.75.75 0 0 0 0-1.5H6.5v-.75ZM11 6.5a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0v-.75h2.25a.75.75 0 0 0 0-1.5H11V6.5ZM5.75 10a.75.75 0 0 1 .75.75v.75h6.75a.75.75 0 0 1 0 1.5H6.5v.75a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM2.75 7.25H8.5v1.5H2.75a.75.75 0 0 1 0-1.5ZM4 3H2.75a.75.75 0 0 0 0 1.5H4V3ZM2.75 11.5H4V13H2.75a.75.75 0 0 1 0-1.5Z" />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="size-4 cursor-pointer"
+            onClick={() => setIsOpenFilter(true)}
+          >
+            <path d="M6.5 2.25a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0V4.5h6.75a.75.75 0 0 0 0-1.5H6.5v-.75ZM11 6.5a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0v-.75h2.25a.75.75 0 0 0 0-1.5H11V6.5ZM5.75 10a.75.75 0 0 1 .75.75v.75h6.75a.75.75 0 0 1 0 1.5H6.5v.75a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM2.75 7.25H8.5v1.5H2.75a.75.75 0 0 1 0-1.5ZM4 3H2.75a.75.75 0 0 0 0 1.5H4V3ZM2.75 11.5H4V13H2.75a.75.75 0 0 1 0-1.5Z" />
+          </svg>
+        </Modal>
       </div>
       <div className="grow bg-white shadow-lg flex flex-col gap-3 rounded-md p-5">
         <div className="grow">
