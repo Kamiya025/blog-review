@@ -10,7 +10,7 @@ export default function MainLayout({
   return (
     <html lang="vi">
       <body className="bg-[#f5f6fb] bg-cover bg-repeat-y antialiased max-h-screen h-screen overflow-y-auto text-gray-950">
-        <NonSSRWrapper>
+        <>
           <Suspense fallback={<div>Loading...</div>}>
             <div className="flex flex-col h-full gap-1 font-[family-name:var(--font-geist-sans)]">
               <main className="grow flex flex-col w-full relative">
@@ -29,7 +29,7 @@ export default function MainLayout({
               </footer>
             </div>
           </Suspense>
-        </NonSSRWrapper>
+        </>
       </body>
     </html>
   )

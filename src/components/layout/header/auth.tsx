@@ -1,14 +1,9 @@
 import { useAuth } from "@/components/auth/context"
-import {
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from "@headlessui/react"
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
 import { useEffect, useState } from "react"
 import { NavItem } from "./nav"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export const HeaderAuth = () => {
   const { user, logout } = useAuth()
@@ -31,7 +26,7 @@ export const HeaderAuth = () => {
         <MenuItems
           anchor="bottom end"
           className={
-            " bg-white rounded-md w-full md:!max-w-[15rem] h-fit md:shadow-xl py-3 md:p-3 md:py-5 mt-5 z-[50000]"
+            " bg-white rounded-md w-[95vw] md:w-full md:!max-w-[15rem] h-fit shadow-xl py-3 md:p-3 md:py-5 mt-5 z-[50000]"
           }
         >
           <MenuItem>

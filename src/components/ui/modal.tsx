@@ -2,7 +2,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react"
 import { cva, VariantProps } from "class-variance-authority"
 import React from "react"
 const modalContainStyle = cva(
-  "transition-transform mx-auto px-5 py-4 w-svw grow",
+  "transition-transform mx-auto px-5 py-4 w-svw grow overflow-auto",
   {
     variants: {
       size: {
