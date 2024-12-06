@@ -10,12 +10,12 @@ export const FormSearch = () => {
       action="/post"
       className="flex items-center justify-center relative w-full"
     >
-      <div className="relative w-full">
+      <div className="relative w-full ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="absolute size-5 left-2 my-auto top-0 bottom-0"
+          className="absolute size-5 left-2 my-auto top-0 bottom-0 text-orange-500"
         >
           <path
             fillRule="evenodd"
@@ -28,7 +28,9 @@ export const FormSearch = () => {
           name="search"
           type="search"
           defaultValue={searchPosts ?? undefined}
-          className={`bg-gray-200 rounded-full border-2 pl-10 px-3 py-2 w-full focus:!border-orange-400 outline-none`}
+          className={`bg-orange-50/60 rounded-full border-2 pl-10 px-3 py-2 w-full 
+                      border-orange-50 focus:!border-orange-400 outline-none 
+                      focus:bg-orange-50 hover:bg-orange-50 active:bg-orange-100 selection:bg-orange-100`}
           placeholder="Tìm kiếm"
         />
       </div>

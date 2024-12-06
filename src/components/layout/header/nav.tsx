@@ -58,7 +58,7 @@ export const Nav4SM = () => {
 
   return (
     <Menu>
-      <MenuButton className="block md:hidden w-fit rounded-full aspect-square p-3 hover:bg-orange-200">
+      <MenuButton className="block md:hidden w-fit max-w-[70vw] rounded-full aspect-square p-3 hover:bg-orange-200">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"

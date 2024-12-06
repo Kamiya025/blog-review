@@ -12,7 +12,7 @@ export const LayoutHeader = () => {
 
   return (
     <div id="header-main" className="sticky top-0 z-[99999] p-5">
-      <header className="relative bg-white rounded-md shadow-xl h-14 flex justify-between items-center">
+      <header className="relative bg-white rounded-xl shadow-xl px-2 h-14 flex justify-between items-center">
         <div className="text-slate-800 text-2xl font-extrabold p-3 select-none">
           <Link href={"/"}>LOGO</Link>
         </div>

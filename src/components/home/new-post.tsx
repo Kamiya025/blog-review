@@ -4,10 +4,10 @@ import { ItemPost } from "../post/item-post"
 export const PostNew = () => {
   return (
     <>
-      <div className="col-span-full bg-orange-200 text-gray-700 text-lg font-bold shadow-lg rounded-md p-3">
+      <div className="col-span-full bg-orange-200 text-gray-700 text-lg font-bold shadow-lg rounded-xl p-3">
         Bài viết gần đây
       </div>
-      <div className="grow bg-white shadow-lg flex flex-col gap-3 rounded-md p-5">
+      <div className="grow bg-white shadow-lg flex flex-col gap-3 rounded-xl p-5">
         <div className="grow flex flex-col gap-3">
           {[1, 2, 3, 4, 5, 6].map((e) => (
             <ItemPost

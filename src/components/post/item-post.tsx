@@ -13,7 +13,7 @@ export const ItemPost = (props: {
   return (
     <Link
       href={"/post/" + props.id}
-      className="relative w-full rounded-sm shadow-md flex items-center gap-3 border p-3 hover:bg-slate-200"
+      className="relative w-full rounded-md shadow-sm flex items-center gap-3 border p-3 hover:bg-slate-200"
     >
       <div className="relative">
         <div className="bg-slate-500 rounded-full !w-20 !h-20 aspect-square" />
