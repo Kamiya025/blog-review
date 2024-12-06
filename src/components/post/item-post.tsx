@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Avatar } from "../ui/avatar"
 type tagType = "rank1" | "rank2" | "rank3"
 export const ItemPost = (props: {
   id: string
@@ -16,7 +17,7 @@ export const ItemPost = (props: {
       className="relative w-full rounded-md shadow-sm flex items-center gap-3 border p-3 hover:bg-slate-200"
     >
       <div className="relative">
-        <div className="bg-slate-500 rounded-full !w-20 !h-20 aspect-square" />
+        <Avatar size={"large"} src="/modern-gold-background.jpg" />
         {props.tag ? (
           <Image
             src={`/${props.tag}.png`}

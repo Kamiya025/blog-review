@@ -1,9 +1,24 @@
+import { Inter, Lato, Roboto_Mono } from "next/font/google"
 import React, { Suspense } from "react"
+import { AuthProvider } from "../auth/context"
 import "./globals.css"
 import { LayoutHeader } from "./header"
-import { AuthProvider } from "../auth/context"
 import { SkeletonLayout } from "./skeleton"
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+})
 
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const lato = Lato({
+  weight: ["300", "400", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+})
 export default function MainLayout({
   children,
 }: Readonly<{
@@ -11,7 +26,10 @@ export default function MainLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className="bg-[#f5f6fb] bg-cover bg-repeat-y antialiased max-h-screen h-screen overflow-y-auto text-gray-950">
+      <body
+        className={`${inter.className} ${lato.className}
+                 bg-[#f5f6fb] bg-cover bg-repeat-y antialiased max-h-screen h-screen overflow-y-auto text-gray-950`}
+      >
         <Suspense fallback={<SkeletonLayout />}>
           <AuthProvider>
             <LayoutHeader />

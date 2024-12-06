@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { NavItem } from "./nav"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Avatar } from "@/components/ui/avatar"
 
 export const HeaderAuth = () => {
   const { user, logout } = useAuth()
@@ -15,13 +16,14 @@ export const HeaderAuth = () => {
   if (user != null)
     return (
       <Menu>
-        <MenuButton className="w-full md:w-fit">
+        <MenuButton className="w-full md:w-fit md:h-full flex items-center">
           <div
-            className="bg-slate-500 rounded-full !w-8 !h-8 aspect-square ml-auto"
             onClick={() => {
               setOpen((pre) => !pre)
             }}
-          />
+          >
+            <Avatar size={"small"} />
+          </div>
         </MenuButton>
         <MenuItems
           anchor="bottom end"

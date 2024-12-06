@@ -6,6 +6,7 @@ import { useState } from "react"
 import { BannerDetailPost } from "./banner"
 import { CommentWrapper } from "./comment"
 import { OtherPostWrapper } from "./other-post"
+import { Avatar } from "@/components/ui/avatar"
 
 export const DetailPostWrapper = () => {
   const [isCenter, setIsCenter] = useState(false)
@@ -195,7 +196,7 @@ export const DetailPostWrapper = () => {
             <div className="sticky z-10 w-full flex flex-col gap-6 h-fit">
               <div className="flex gap-1 items-center">
                 <div className="relative">
-                  <div className="bg-slate-500 rounded-full !w-20 !h-20 aspect-square" />
+                  <Avatar size={"large"} />
                 </div>
                 <div className="py-2 grid grid-cols-5"></div>
                 <div className="py-2 flex flex-col ">

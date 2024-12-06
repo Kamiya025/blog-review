@@ -14,6 +14,7 @@ export default {
       },
       backgroundImage: {
         "main-image": "url('/modern-gold-background.jpg')",
+        sapiens: "url('/sapiens.svg')",
       },
     },
   },

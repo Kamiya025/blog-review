@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card } from "../ui/card"
+import { Avatar } from "../ui/avatar"
 
 export const RankAuthor = () => {
   return (
@@ -29,7 +30,7 @@ export const RankAuthor = () => {
                       height={295}
                     />
                   )}
-                  <div className="bg-slate-500 rounded-full !w-8 !h-8 aspect-square" />
+                  <Avatar />
                 </div>
                 <div className="text-right">
                   <div className="text-pretty line-clamp-2">Tác giả {e}</div>

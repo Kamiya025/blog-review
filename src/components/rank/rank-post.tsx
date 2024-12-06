@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card } from "../ui/card"
+import { Avatar } from "../ui/avatar"
 
 export const RankPost = () => {
   return (
@@ -35,7 +36,7 @@ export const RankPost = () => {
                   <div className="text-xs px-0">5000 lượt xem</div>
                 </div>
                 <div className="relative">
-                  <div className="bg-slate-500 rounded-full !w-10 !h-10 aspect-square" />
+                  <Avatar src="/modern-gold-background.jpg" />
                 </div>
               </div>
             </Link>

@@ -1,17 +1,18 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
+import { ItemPost } from "@/components/post/item-post"
+import { Modal } from "@/components/ui/modal"
+import { Pagination } from "@/components/ui/pagination"
+import { ViewData } from "@/components/ui/view-data"
+import { usePathname, useSearchParams } from "next/navigation"
 import { useState } from "react"
-import { Modal } from "../ui/modal"
-import { Pagination } from "../ui/pagination"
-import { ItemPost } from "./item-post"
-import { ViewData } from "../ui/view-data"
 
-export const ListPosts = () => {
+export const ListUserPosts = () => {
   const searchParams = useSearchParams()
   const search = searchParams.get("search")
   const page = Number(searchParams.get("page") ?? "1")
   const [isOpenFilter, setIsOpenFilter] = useState(false)
+  const pathname = usePathname()
   return (
     <>
       <div className="flex justify-center gap-2 items-center col-span-full bg-orange-200 text-gray-700 text-lg shadow-lg rounded-md p-3">
@@ -64,7 +65,7 @@ export const ListPosts = () => {
             ))}
           </div>
           <Pagination
-            href={{ pathname: "/post", query: search ? { search } : undefined }}
+            href={{ pathname, query: search ? { search } : undefined }}
             totalPages={10}
             currentPage={page}
           />

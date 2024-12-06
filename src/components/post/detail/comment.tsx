@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/ui/avatar"
 import Link from "next/link"
 
 export const CommentWrapper = () => {
@@ -20,7 +21,7 @@ const ItemComment = () => {
   return (
     <div className="flex gap-1 items-start">
       <div className="relative">
-        <div className="bg-slate-500 rounded-full !w-10 !h-10 aspect-square" />
+        <Avatar />
       </div>
       <div className="py-2 grid grid-cols-5"></div>
       <div className="py-2 flex flex-col ">
