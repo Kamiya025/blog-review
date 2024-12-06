@@ -1,8 +1,6 @@
 "use client"
-import { cva } from "class-variance-authority"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useRef, useState } from "react"
 import { HeaderAuth } from "./auth"
 import { Nav4SM, NavItem } from "./nav"
 import { FormSearch } from "./search-form"
@@ -14,7 +12,7 @@ export const LayoutHeader = () => {
     <div id="header-main" className="sticky top-0 z-[99999] p-5">
       <header className="relative bg-white rounded-xl shadow-xl px-2 h-14 flex justify-between items-center">
         <div className="text-slate-800 text-2xl font-extrabold p-3 select-none">
-          <Link href={"/"}>LOGO</Link>
+          <Link href={"/"}>GenesisTalk</Link>
         </div>
         <Nav4SM />
         <div className="absolute mx-auto right-0 left-0 md:max-w-[15rem] lg:max-w-[35rem] hidden md:block">

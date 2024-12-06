@@ -20,8 +20,8 @@ const buttonStyle = cva("text-nowrap", {
       large: "text-lg px-[24px] py-[12px] rounded-lg",
       xl: "text-xl px-[24px] py-[12px] rounded-lg",
     },
-    full: {
-      true: "w-full",
+    widthFull: {
+      true: "!w-full",
       false: "w-fit",
     },
   },
@@ -29,18 +29,39 @@ const buttonStyle = cva("text-nowrap", {
     {
       intent: "primary",
       size: "medium",
-      full: false,
+      widthFull: false,
     },
   ],
   defaultVariants: {
     intent: "primary",
     size: "medium",
-    full: false,
+    widthFull: false,
   },
 })
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonStyle> {}
-export const Button = (props: ButtonProps) => {
-  return <button {...props} className={buttonStyle({ intent: props.intent })} />
+    VariantProps<typeof buttonStyle> {
+  widthFull?: boolean
+}
+export const Button: React.FC<ButtonProps> = ({
+  intent,
+  size,
+  widthFull,
+  className,
+  ...props
+}) => {
+  return (
+    <button
+      {...props}
+      className={buttonStyle({
+        intent,
+        size,
+        widthFull,
+        className,
+      })}
+      disabled={intent === "disabled" || props.disabled}
+    >
+      {props.children}
+    </button>
+  )
 }
