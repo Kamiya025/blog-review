@@ -7,6 +7,7 @@ export const HomeWrapper = () => {
   return (
     <div className="container flex flex-col gap-6 h-full justify-center mx-auto">
       <Banner />
+      <div></div>
       <div className="grid grid-cols-12 gap-6 h-full w-full">
         <div className="col-span-full md:col-span-8 flex flex-col gap-3">
           <PostNew />

@@ -1,5 +1,4 @@
-import { AuthProvider } from "@/components/auth/context"
-import MainLayout from "@/components/layout/layout"
+import MainLayout from "@/components/layout"
 
 export const metadata = {
   title: "Trang chủ",
