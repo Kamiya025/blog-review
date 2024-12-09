@@ -1,5 +1,5 @@
 import { PostForm } from "@/components/post/form"
-import { SimpleEditor } from "@/components/ui/editor/editor"
+import { Editor } from "@/components/ui/editor/editor"
 import { Input } from "@/components/ui/input"
 
 export default function CreatePost() {

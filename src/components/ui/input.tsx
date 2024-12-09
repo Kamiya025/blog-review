@@ -28,11 +28,15 @@ export const Input = <T extends FieldValues>({
     <div className="flex flex-col gap-2 w-full">
       <label htmlFor={id ?? String(name)} className="font-semibold">
         {label}
+        {required && <span className="text-red-500">*</span>}
       </label>
       {type === "textarea" ? (
         <textarea
           id={id ?? String(name)}
-          {...register(name)}
+          {...register(name, registerRules(name, required, label))}
+          onBlur={(e) => {
+            e.currentTarget.value = e.currentTarget.value.trimEnd()
+          }}
           placeholder={placeholder}
           className={`border p-2 rounded-md ${
             error ? "border-red-500" : "border-gray-300"
@@ -46,6 +50,9 @@ export const Input = <T extends FieldValues>({
               type != "password" ? type : showPassword ? "text" : "password"
             }
             {...register(name, registerRules(name, required, label))}
+            onBlur={(e) => {
+              e.currentTarget.value = e.currentTarget.value.trimEnd()
+            }}
             placeholder={placeholder}
             className={`w-full px-3 py-2 shadow-md rounded-lg border-2 focus:border-orange-500 outline-none  ${
               error ? "border-red-500" : "border-gray-300"

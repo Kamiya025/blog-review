@@ -1,5 +1,5 @@
 "use client"
-import { SimpleEditor } from "@/components/ui/editor/editor"
+import { Editor } from "@/components/ui/editor/editor"
 import { Input } from "@/components/ui/input"
 import { SubmitHandler, useForm } from "react-hook-form"
 
@@ -25,6 +25,7 @@ export const PostForm = () => {
         label="Tiêu đề"
         name="title"
         register={register}
+        required
         error={errors.title}
       />
       <Input
@@ -40,7 +41,12 @@ export const PostForm = () => {
         register={register}
         error={errors.category}
       />
-      <SimpleEditor label="Nội dung" />
+      <Editor
+        control={control}
+        name={"description"}
+        label="Nội dung"
+        required
+      />
       <div className="flex justify-end ">
         <button
           type="submit"

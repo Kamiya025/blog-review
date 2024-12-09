@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export const Banner = () => {
   return (
-    <div className="w-full relative h-[50vh] font-bold whitespace-pre contain-size uppercase group">
+    <div className="w-full relative h-[30rem] font-bold whitespace-pre contain-size uppercase group">
       <div
         className="w-full !h-full p-8 md:px-32 
                     bg-gradient-to-tr from-30% from-blue-500 to-white bg-blend-soft-light 
@@ -16,7 +16,7 @@ export const Banner = () => {
                         w-fit pr-4 duration-300 group-hover:pl-4 group-hover:pr-0 rounded-xl cursor-pointer"
           >
             <div
-              className="relative bg-yellow-400/80 group-hover:ease-linear duration-500 p-4 
+              className="relative bg-yellow-400/90 group-hover:ease-linear duration-500 p-4 
                         group-hover:p-0 group-hover:bg-transparent group-hover:shadow-none 
                         rounded-xl shadow-lg peer-hover:bg-transparent"
             >
@@ -24,7 +24,7 @@ export const Banner = () => {
             </div>
             <div
               className="relative duration-500 
-                        group-hover:ease-linear group-hover:bg-yellow-400/80 
+                        group-hover:ease-linear group-hover:bg-yellow-400/90 
                         group-hover:p-4 group-hover:rounded-xl group-hover:shadow-lg
                         peer-hover:bg-transparent"
             >
@@ -42,7 +42,7 @@ export const Banner = () => {
         alt="hero"
         width={400}
         height={0}
-        className="absolute bottom-0 -top-24 -left-20 z-40 group-hover:animate-[wiggle_8s_ease-in-out_infinite] object-cover"
+        className="absolute bottom-0 -top-24 -left-20 z-40 animate-[wiggle_8s_ease-in-out_infinite]"
       />
     </div>
   )
