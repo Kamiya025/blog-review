@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority"
 import Link from "next/link"
+import { queryObjects } from "v8"
 
 interface PaginationProps {
   href: { pathname: string; query?: Record<string, any> }
@@ -13,7 +14,14 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
 }) => {
   const pageRange = getPageRange(currentPage, totalPages, 5)
-  const hrefObj = typeof href === "string" ? parseUrl(href) : href
+  const hrefObj = {
+    ...href,
+    query: href.query
+      ? Object.fromEntries(
+          Object.entries(href.query).filter(([, value]) => value !== undefined)
+        )
+      : undefined,
+  }
   return (
     <div className="flex justify-end py-1 gap-2">
       <DisabledLink

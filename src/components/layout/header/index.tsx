@@ -9,8 +9,8 @@ export const LayoutHeader = () => {
   const pathname = usePathname()
 
   return (
-    <div id="header-main" className="sticky top-0 z-[99999] p-5">
-      <header className="relative bg-white rounded-xl shadow-xl px-2 h-14 flex justify-between items-center">
+    <header id="header-main" className="sticky top-0 z-[99999] p-5">
+      <div className="relative bg-white rounded-xl shadow-xl px-2 h-14 flex justify-between items-center">
         <div className="text-slate-800 text-2xl font-extrabold p-3 select-none">
           <Link href={"/"}>GenesisTalk</Link>
         </div>
@@ -35,7 +35,7 @@ export const LayoutHeader = () => {
             <HeaderAuth />
           </div>
         </nav>
-      </header>
-    </div>
+      </div>
+    </header>
   )
 }

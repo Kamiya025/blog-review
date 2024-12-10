@@ -12,7 +12,7 @@ export const Banner = () => {
         <div className="flex-1 flex-col gap-3 flex z-50 text-white justify-end">
           <div className="text-2xl">Đây là</div>
           <div
-            className="flex gap-3 items-center text-2xl md:text-5xl !h-20 mb-5 border select-none shadow-md 
+            className="flex gap-3 items-center text-2xl md:text-5xl h-16 md:!h-20 mb-5 border select-none shadow-md 
                         w-fit pr-4 duration-300 group-hover:pl-4 group-hover:pr-0 rounded-xl cursor-pointer"
           >
             <div
@@ -31,7 +31,7 @@ export const Banner = () => {
               mới
             </div>
           </div>
-          <div className="w-full space-y-2 space-x-5 text-lg hidden md:flex flex-col justify-end">
+          <div className="w-full space-y-2 space-x-5 text-lg flex flex-col justify-end text-pretty">
             <div>Phép màu luôn xuất phát từ ý tưởng bất ngờ</div>
           </div>
         </div>
@@ -42,7 +42,7 @@ export const Banner = () => {
         alt="hero"
         width={400}
         height={0}
-        className="absolute bottom-0 -top-24 -left-20 z-40 animate-[wiggle_8s_ease-in-out_infinite]"
+        className="absolute bottom-0 -top-24 left-0 md:-left-20 z-40 animate-[wiggle_8s_ease-in-out_infinite]"
       />
     </div>
   )

@@ -39,7 +39,7 @@ export default function MainLayout({
               <div
                 id="main-conainer"
                 className="container w-full h-full max-w-screen-xl z-50
-                         lg:px-12 lg:pt-10 xl:px-16 xl:pt-14
+                         lg:px-12 pt-10 xl:px-16 xl:pt-14
                           overflow-y-auto grow mx-auto right-0 left-0"
               >
                 {children}
