@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import { GroupChooseBtn } from "@/components/ui/group-choose-btn"
 import { Input } from "@/components/ui/input"
 import { Modal } from "@/components/ui/modal"
@@ -43,14 +44,14 @@ export const AdvancedSearchModal = () => {
         }
         titleHeader={"Tìm kiếm nâng cao"}
       >
-        <form action={"/post"} className="flex flex-col gap-3">
-          <Input
-            name="search"
-            register={register}
-            label="Tìm kiếm"
-            placeholder="Nhập từ khóa"
-          />
-          <div>
+        <form action={"/post"} className="">
+          <div className="flex flex-col gap-5 my-5">
+            <Input
+              name="search"
+              register={register}
+              label="Tìm kiếm"
+              placeholder="Nhập từ khóa"
+            />
             <GroupChooseBtn
               label="Thể loại"
               listValue={["Tự do", "Game", "Tài chính", "Môi trường"].map(
@@ -59,15 +60,11 @@ export const AdvancedSearchModal = () => {
               name={"categories"}
               register={register}
               type={"checkbox"}
+              className="h-52"
             />
           </div>
-          <div className="flex justify-end ">
-            <button
-              type="submit"
-              className="px-4 py-3 rounded-md bg-orange-500 hover:bg-orange-300 active:bg-orange-600 text-white text-nowrap"
-            >
-              Tìm kiếm
-            </button>
+          <div className="flex justify-end">
+            <Button type="submit">Tìm kiếm</Button>
           </div>
         </form>
       </Modal>

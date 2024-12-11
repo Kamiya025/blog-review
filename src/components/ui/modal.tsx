@@ -38,7 +38,7 @@ export const Modal = (props: ModalProps) => {
       <Dialog open={isOpen} onClose={onClose} className="relative z-[999999]">
         <div className="fixed inset-0 w-screen h-screen overflow-y-auto bg-black/80 flex justify-center items-center">
           <div className="flex flex-col my-auto items-center justify-center !max-h-[80vh]">
-            <DialogPanel className="grow space-y-4 border bg-white rounded-lg shadow-2xl">
+            <DialogPanel className="grow border bg-white rounded-lg shadow-2xl">
               <DialogTitle className="relative text-lg font-bold px-5 py-3 border-b-0 border-orange-400/80 bg-orange-100/90 rounded-t-md">
                 {props.titleHeader}
                 <div className="absolute right-2 top-0 bottom-0 my-auto flex justify-center items-center">

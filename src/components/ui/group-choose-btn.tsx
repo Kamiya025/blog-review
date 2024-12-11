@@ -43,7 +43,9 @@ export function GroupChooseBtn<T extends FieldValues>(
           {props.listValue.map((item, index) => (
             <label
               key={item.value + "-" + index}
-              className="flex gap-1 items-center rounded-full shadow-sm bg-slate-300 has-[:checked]:bg-orange-500 cursor-pointer px-2 py-1"
+              className="flex gap-1 items-center rounded-full select-none shadow-sm 
+                        bg-slate-200 hover:bg-slate-100 has-[:checked]:bg-orange-500
+                        cursor-pointer px-2 py-1"
             >
               <input
                 id={`${props.name}_${index}`}
@@ -55,7 +57,7 @@ export function GroupChooseBtn<T extends FieldValues>(
                 }}
                 disabled={props.disabled}
                 value={item.value}
-                className="w-4 h-4 peer bg-transparent rounded-full border-0 border-gray-100 p-4 text-center outline-none accent-orange-600"
+                className="w-4 h-4 hidden peer bg-transparent rounded-full border-0 border-gray-100 p-4 text-center outline-none accent-orange-600"
               />
               <span
                 className={`text-pretty peer-checked:text-white ${props.classNameLabel}`}

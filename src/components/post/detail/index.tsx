@@ -12,10 +12,11 @@ import Link from "next/link"
 export const DetailPostWrapper = () => {
   const [isCenter, setIsCenter] = useState(false)
   const { slugId } = useParams()
+
   return (
     <div className="relative flex flex-col gap-6 w-full min-h-full h-full">
       <Link
-        href={`post/${slugId}/update`}
+        href={`/post/${slugId}/update`}
         className="fixed bottom-2 right-2 md:bottom-12 md:right-12 bg-white shadow-2xl z-50 rounded-full p-3 hover:bg-orange-500 hover:text-white"
       >
         <svg
