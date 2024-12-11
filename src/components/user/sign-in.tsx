@@ -22,7 +22,7 @@ export default function SignInWrapper() {
     router.back()
   }
   const handleLogin = () => {
-    signIn("google")
+    // signIn("google")
   }
   return (
     <div className="bg-white h-[70vh] flex flex-col max-w-[32rem] w-full mx-auto rounded-2xl p-3 md:px-5 md:py-8 shadow-2xl">
