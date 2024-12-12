@@ -1,4 +1,4 @@
-import SignInWrapper from "@/components/user/sign-in"
+import SignInWrapper from "@/components/user/sign-in/sign-in"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import { Metadata } from "next"
 export const metadata: Metadata = {

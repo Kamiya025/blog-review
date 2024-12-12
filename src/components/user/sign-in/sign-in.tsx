@@ -9,9 +9,9 @@ export default function SignInWrapper() {
     onError: () => {
       console.error("Google Sign-In failed")
     },
-    ux_mode: "redirect",
-    flow: "auth-code", // Sử dụng Auth Code Flow
-    redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI!,
+    // ux_mode: "redirect",
+    // flow: "auth-code",
+    // redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI!,
   })
 
   return (
