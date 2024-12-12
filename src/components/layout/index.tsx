@@ -20,6 +20,7 @@ const lato = Lato({
   subsets: ["latin"],
   display: "swap",
 })
+
 export default function MainLayout({
   children,
 }: Readonly<{
